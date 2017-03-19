@@ -64,31 +64,31 @@ function createSubscriber(tag){
     };
 }
 
-function take$(sourceObservable, amount) {
-  return new Rx.Observable(observer => {
-    let count = 0
-    const subscription = obeserver.subscribe({
-      next(item) {
-        obeserver.next(item);
-        if(++count >= amount)
-          observer.complete();
+// function take$(sourceObservable, amount) {
+//   return new Rx.Observable(observer => {
+//     let count = 0
+//     const subscription = obeserver.subscribe({
+//       next(item) {
+//         obeserver.next(item);
+//         if(++count >= amount)
+//           observer.complete();
 
-      },
-      error(error) (parameter) observer: any
-      complete() { observer.complete(); }
-    });
+//       },
+//       error(error) (parameter) observer: any
+//       complete() { observer.complete(); }
+//     });
 
-    return () => subscription.unsubscribe();
-  });
-}
+//     return () => subscription.unsubscribe();
+//   });
+// }
 
 
-const test$ = createInterval$(1000);
+// const test$ = createInterval$(1000);
 
-//everySecond$.subscribe(createSubscriber("one"));
-const firstFiveSecond$ = take$(test$, 5 );
-const subscription = firstFiveSecond$.subscribe(createSubscriber("one"));
+// //everySecond$.subscribe(createSubscriber("one"));
+// const firstFiveSecond$ = take$(test$, 5 );
+// const subscription = firstFiveSecond$.subscribe(createSubscriber("one"));
 
-setTimeout(()=> {
-  subscription.unsubscribe();
-}, 3000);
+// setTimeout(()=> {
+//   subscription.unsubscribe();
+// }, 3000);
